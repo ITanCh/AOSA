@@ -23,8 +23,9 @@ Platform 是由`plugin`组成的。plugin是Eclipse组件模型的基础，它�
 plugin通过requires来说明对其他plugin的依赖。  
 
 ####extension vs extension point  
-开发者可以通过extension和extension point 机制来对Ecipse进行功能上的扩展。它们之间的关系可以用插座和插头来比喻。详细参考[1](http://https://wiki.eclipse.org/FAQ_What_are_extensions_and_extension_points%3F) [2](http://http://www.vogella.com/tutorials/EclipseExtensionPoint/article.html#extensionpoints)。    
-![extension](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/extensions.png)  
+开发者可以通过extension和extension point 机制来对Ecipse进行功能上的扩展。它们之间的关系可以用插座和插头来比喻。详细参考[1](http://wiki.eclipse.org/FAQ_What_are_extensions_and_extension_points%3F) [2](http://www.vogella.com/tutorials/EclipseExtensionPoint/article.html#extensionpoints)。    
+
+![extension](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/extensions.png)  
 **extension point**  
 插座：如果一个plugin希望其它plugin能够对其进行扩展，则需要定义extension point。extension point说明了对其扩展的extension需要遵守的规约。只有特定的插头才能符合条件。  
 
@@ -38,7 +39,7 @@ plugin通过requires来说明对其他plugin的依赖。
 ####早期Eclipse架构  
 >everything is a plugin    
 
-![early eclipse architecture](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/platform.png)   
+![early eclipse architecture](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/platform.png)   
 
 **workbench**  
 workbench是组织Eclipse怎么样在桌面上进行显示的UI元素。它由`perspective` `views` `editors`组成。  
@@ -94,7 +95,7 @@ OSGI框架会通过检测bundle的manifest里的依赖信息来生成该bundle�
 
 **生命周期**  
 OSGi是一个动态框架，依旧保持原来Eclipse中的`lazy activation`，需要的时候类才会被加载。
-![bundle lifecycle](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/bundlelifecycle.png)       
+![bundle lifecycle](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/bundlelifecycle.png)       
 
  
 
@@ -110,7 +111,7 @@ Eclipse 启动自己的extensin是`org.eclipse.ui.ide.workbench`，是对extensi
 ###2.Rich Client Platform(RCP)  
 
 因为RCP不需要所有的IDE功能，所以对Eclipse进行了重构，将一些bundle分割，方便开发RCP应用。  
-![rcp](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/rcp.png)      
+![rcp](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/rcp.png)      
 
 ------
 ##Eclipse 3.4  
@@ -121,7 +122,7 @@ feature是一组被打包的bundle,它们能够被统一的建立和安装。`up
 
 ###p2 Concepts 
 p2是关于`installation units(IU)`的概念。IU说明了安装组件的名字、id、组件的功能和它的依赖。它可以对安装的组件进行版本控制，并且方便的让组件从一个版本更新到另一个版本。将冲突在安装时发现，而不是在运行时发现。  
-![p2](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/p2.png)         
+![p2](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/p2.png)         
 
 **profile**  
 你现有的安装组件的清单。说明了一些运行环境，安装位置等。  
@@ -142,7 +143,7 @@ model的变化会立即在workbench中展现出来。
 
 ###Dependency Injection  
 服务编程模型包含：producer，consumer，broker。中间人是负责管理生产者和消费者。  
-![context](/Users/Tianchi/ReadYou/The Architecture of Open Source Applications/02_06_eclipse/context.png)      
+![context](https://raw.githubusercontent.com/ITanCh/AOSA/master/image/context.png)      
 生产者向context中添加service和对象。service向消费者注入context。消费者声明自己的需求。
 
 ###Application Services  
